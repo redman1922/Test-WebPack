@@ -1,4 +1,8 @@
 import { hourElement, minuteElement, secondElement, millisecondElement } from './variable.js'
+import { Howl } from 'howler'
+var sound = new Howl({
+    src: ["./src/sound/sound.mp3"],
+});
 
 let hour = 0;
 let minute = 0;
@@ -31,10 +35,7 @@ export function startTimer() {
     }
     //музыка раз в минуту
     if (second == 1 && millisecond == 1) {
-        var audio = new Audio(); // Создаём новый элемент Audio
-        audio.src = './src/zvuk-vyibora-v-igre.mp3'; // Указываем путь к звуку "клика"
-        audio.autoplay = true; // Автоматически запускаем
-        audio.volume = 0.2;
+        sound.play();
     }
 
     if (second > 59) {
